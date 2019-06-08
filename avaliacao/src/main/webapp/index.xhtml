@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Avaliação</title>
+</h:head>
+<h:body>
+
+	<p:growl id="msgs" showDetail="false" life="7000" sticky="false" autoUpdate="true"/>
+
+	<h:form id="form">
+	
+	<h:panelGrid columns="2">
+	
+	<h:outputText value="Título" />
+	<p:inputText name="Titulo" id="Titulo" value="#{livroMB.edit.titulo}" />
+	
+	<h:outputText value="Autor" />
+	<p:inputText name="Autor" id="Autor" value="#{livroMB.edit.autor}" />
+	
+	<h:outputText value="Editora" />
+	<p:inputText name="Editora" id="Editora" value="#{livroMB.edit.editora}" />
+	
+	<h:outputText value="Categoria" />
+	<p:selectOneMenu value = "#{livroMB.edit.categoria}"> 
+			<f:selectItem itemValue = "Selecione" itemLabel = "Selecione" />  
+            <f:selectItem itemValue = "TERROR" itemLabel = "Terror" /> 
+            <f:selectItem itemValue = "ROMANCE" itemLabel = "Romance" /> 
+            <f:selectItem itemValue = "MANGA" itemLabel = "Mangá" /> 
+            <f:selectItem itemValue = "BIOGRAFIA" itemLabel = "Biografia" />    
+         </p:selectOneMenu>  
+         
+         
+	<h:outputText value="Quantidade" />
+	<p:inputText name="Quantidade" id="Quantidade" value="#{livroMB.edit.quantidade}" />
+	
+	</h:panelGrid>
+	
+	<p:commandButton value="Confirmar" icon="ui-icon-check"
+					update=":msgs form" actionListener="#{livroMB.onSave()}" />
+	
+	</h:form>
+	
+</h:body>
+</html>
